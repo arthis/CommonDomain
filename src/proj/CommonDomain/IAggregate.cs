@@ -2,6 +2,7 @@ namespace CommonDomain
 {
 	using System;
 	using System.Collections;
+    using System.Collections.Generic;
 
 	public interface IAggregate
 	{
@@ -9,7 +10,7 @@ namespace CommonDomain
 		int Version { get; }
 
 		void ApplyEvent(object @event);
-		ICollection GetUncommittedEvents();
+        ICollection<IEvent> GetUncommittedEvents();
 		void ClearUncommittedEvents();
 
 		IMemento GetSnapshot();

@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace CommonDomain.Core
 {
     using System;
@@ -6,7 +8,7 @@ namespace CommonDomain.Core
 
     public abstract class AggregateBase : IAggregate, IEquatable<IAggregate>
     {
-        private readonly ICollection<object> uncommittedEvents = new LinkedList<object>();
+        private readonly ICollection<IEvent> uncommittedEvents = new LinkedList<IEvent>();
 
         private IRouteEvents registeredRoutes;
 
@@ -46,7 +48,7 @@ namespace CommonDomain.Core
             this.RegisteredRoutes.Register(route);
         }
 
-        protected void RaiseEvent(object @event)
+        protected void RaiseEvent(IEvent @event)
         {
             ((IAggregate)this).ApplyEvent(@event);
             this.uncommittedEvents.Add(@event);
@@ -56,9 +58,9 @@ namespace CommonDomain.Core
             this.RegisteredRoutes.Dispatch(@event);
             this.Version++;
         }
-        ICollection IAggregate.GetUncommittedEvents()
+        ICollection<IEvent> IAggregate.GetUncommittedEvents()
         {
-            return (ICollection)this.uncommittedEvents;
+            return this.uncommittedEvents;
         }
         void IAggregate.ClearUncommittedEvents()
         {

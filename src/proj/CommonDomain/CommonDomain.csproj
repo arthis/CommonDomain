@@ -49,6 +49,10 @@
       <Link>Properties\VersionAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="IAggregate.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="ICommandHandler.cs" />
+    <Compile Include="IEvent.cs" />
+    <Compile Include="IMessage.cs" />
     <Compile Include="IRouteEvents.cs" />
     <Compile Include="IDetectConflicts.cs" />
     <Compile Include="IMemento.cs" />
@@ -59,6 +63,9 @@
     <Content Include="..\CustomDictionary.xml">
       <Link>Properties\CustomDictionary.xml</Link>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
