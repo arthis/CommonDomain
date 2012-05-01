@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FADA50FE-0D9B-478E-A443-4C536B3B3152}</ProjectGuid>
+    <ProjectGuid>{147F7058-90E8-4E96-A2BA-E5DB89ADB4A8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
+    <RootNamespace>NunitAddin</RootNamespace>
+    <AssemblyName>NunitAddin</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,9 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\NUnit 2.6\bin\framework\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.core">
+      <HintPath>C:\Program Files\NUnit 2.6\bin\lib\nunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core.interfaces">
+      <HintPath>C:\Program Files\NUnit 2.6\bin\lib\nunit.core.interfaces.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,22 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CTestingAddin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\example\example1\example1.csproj">
-      <Project>{15903C05-3822-4034-AF0B-DB1A3611FB46}</Project>
-      <Name>example1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\proj\CommonDomain.Persistence\CommonDomain.Persistence.csproj">
-      <Project>{75C8F482-B38D-428C-AD67-890B40E35A63}</Project>
-      <Name>CommonDomain.Persistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\proj\CommonDomain\CommonDomain.csproj">
-      <Project>{E07187E1-EEE1-44DF-996A-C4733F327BDC}</Project>
-      <Name>CommonDomain</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

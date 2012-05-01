@@ -8,12 +8,12 @@ using example1.events;
 
 namespace example1.domain
 {
-    public class MyDomainAggregateRoot : AggregateBase
+    public class InventoryItem : AggregateBase
     {
 
-        public MyDomainAggregateRoot(Guid id, string name)
+        public InventoryItem(Guid id, string name)
         {
-            var evt = new DomainAggregateRootAdded()
+            var evt = new InventoryItemCreatedAdded()
             {
                 Id = id,
                 Name = name
@@ -22,7 +22,7 @@ namespace example1.domain
             RaiseEvent(evt);
         }
 
-        public void Apply(DomainAggregateRootAdded e)
+        public void Apply(InventoryItemCreatedAdded e)
         {
             Id = e.Id;
         }
