@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Core;
 using NUnit.Core.Extensibility;
+using System.IO;
 
 namespace NunitAddin
 {
@@ -36,7 +37,13 @@ namespace NunitAddin
 
         public void RunFinished(TestResult result)
         {
-            
+            string file = "c:\resulttest.txt";
+            if (File.Exists(file))
+                File.Delete(file);
+            using(var writer =File.CreateText(file))
+            {
+                ObjectDumper.Write(result,0,writer);
+            }
         }
 
         public void SuiteFinished(TestResult result)
@@ -49,7 +56,8 @@ namespace NunitAddin
         { }
 
         public void TestOutput(TestOutput testOutput)
-        { }
+        {
+        }
 
         public void TestStarted(TestName testName)
         { }

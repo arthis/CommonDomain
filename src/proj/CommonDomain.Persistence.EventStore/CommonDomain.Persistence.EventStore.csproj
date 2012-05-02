@@ -72,7 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EventStore">
-      <HintPath>..\..\..\..\joliver-EventStore\output\bin\EventStore.dll</HintPath>
+      <HintPath>..\..\..\..\EventStore\publish-net40\bin\EventStore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
