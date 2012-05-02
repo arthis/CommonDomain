@@ -9,7 +9,6 @@ using System.Reflection;
 using System.Text;
 using CommonDomain;
 using CommonDomain.Persistence;
-using NUnit.Core;
 using NUnit.Framework;
 using example1;
 using example1.command;
@@ -34,7 +33,6 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            
             var commandHandler = OnHandle(fakeRepository);
             fakeRepository.CommittedEvents = Given();
             var command = When();
@@ -42,7 +40,6 @@ namespace Tests
 
             try
             {
-
                 commandHandler.Execute(command);
                 var actual = fakeRepository.CommittedEvents.ToList();
 
@@ -124,7 +121,7 @@ namespace Tests
         }
 
         [Test]
-        public void Exception()
+        public void does_not_throw_an_Exception()
         {
             Assert.IsNull(Caught);
         }

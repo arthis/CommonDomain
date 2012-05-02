@@ -32,10 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.core">
-      <HintPath>C:\Program Files (x86)\NUnit 2.5.10\bin\net-2.0\lib\nunit.core.dll</HintPath>
+      <HintPath>C:\Program Files\NUnit 2.5.10\bin\net-2.0\lib\nunit.core.dll</HintPath>
     </Reference>
     <Reference Include="nunit.core.interfaces">
-      <HintPath>C:\Program Files (x86)\NUnit 2.5.10\bin\net-2.0\lib\nunit.core.interfaces.dll</HintPath>
+      <HintPath>C:\Program Files\NUnit 2.5.10\bin\net-2.0\lib\nunit.core.interfaces.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -49,8 +49,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetPath)" "C:\Program Files (x86)\NUnit 2.5.10\bin\net-2.0\addins\PrintingTestAddin.dll"
-copy /Y "$(TargetPath)" "C:\Program Files (x86)\JetBrains\ReSharper\v6.1\Bin\addins\PrintingTestAddin.dll"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetPath)" "C:\Program Files\NUnit 2.5.10\bin\net-2.0\addins\PrintingTestAddin.dll"
+copy /Y "$(TargetPath)" "C:\Program Files\JetBrains\ReSharper\v6.1\Bin\addins\PrintingTestAddin.dll"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

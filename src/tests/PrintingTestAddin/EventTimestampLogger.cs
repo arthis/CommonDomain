@@ -160,7 +160,7 @@ namespace NUnitTestLogger
         {
             var passed = result.IsSuccess ? "Passed" : "Failed";
             log.WriteLine(result.FullName.Replace('_', ' ') + " - " + passed);
-            result.Test.
+            //result.Test.
             //var on = result.GetOnResult();
             //if (on != null)
             //{
@@ -257,11 +257,11 @@ namespace NUnitTestLogger
             {
                 try
                 {
-                    ObjectDumper.Write(result, int.MaxValue, writer);
+                   ObjectDumper.Write(result, int.MaxValue, writer);
                     writer.WriteLine();
                     writer.WriteLine(new string('*',120));
                     writer.WriteLine();
-                    TestFormatter.PrintSpec(result);
+                    TestFormatter.PrintSpec(result, writer);
                 }
                 catch (Exception e)
                 {
