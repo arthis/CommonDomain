@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NunitAddin")]
+[assembly: AssemblyTitle("DocumentationRunner")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NunitAddin")]
+[assembly: AssemblyProduct("DocumentationRunner")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f0d75239-637b-4f47-9e84-d7d45c46aa00")]
+[assembly: Guid("c51543b5-d1ad-449a-9869-465fc14f6255")]
 
 // Version information for an assembly consists of the following four values:
 //

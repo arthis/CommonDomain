@@ -33,6 +33,11 @@ namespace example1.events
 	            return (Id.GetHashCode()*397) ^ (Name != null ? Name.GetHashCode() : 0);
 	        }
 	    }
+
+        public string ToDescription()
+        {
+            return string.Format("The Inventory item '{0}' is created.",  Name);
+        }
     }
 	
 }

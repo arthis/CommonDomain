@@ -7,5 +7,6 @@ namespace CommonDomain
 {
     public interface IEvent :IMessage
     {
+        string ToDescription();
     }
 }
