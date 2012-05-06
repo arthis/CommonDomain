@@ -12,24 +12,23 @@ namespace RunExample1
 {
     public class Program
     {
-        private static ICommandHandler _commandHandlerService;
- 
+        private static CommandHandlerService _commandHandlerService;
+
         private static readonly byte[] EncryptionKey = new byte[]
-		{
-			0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf
-		};
+        {
+            0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf
+        };
 
         private static IStoreEvents WireupEventStore()
         {
             return Wireup.Init()
                .LogToOutputWindow()
                .UsingMongoPersistence("EventStore", new DocumentObjectSerializer())
-
                    .InitializeStorageEngine()
-                   .TrackPerformanceInstance("example")
                    .UsingJsonSerialization()
                        .Compress()
                        .EncryptWith(EncryptionKey)
+               .HookIntoPipelineUsing(new[] { new AuthorizationPipelineHook() })
                .UsingSynchronousDispatchScheduler()
                    .DispatchTo(new DelegateMessageDispatcher(DispatchCommit))
                .Build();
@@ -43,15 +42,17 @@ namespace RunExample1
             var conflictDetector = new ConflictDetector();
             var eventRepository = new EventStoreRepository(storeEvents, aggregateFactory, conflictDetector);
 
-            _commandHandlerService = new CommandHandler();
+            _commandHandlerService = new CommandHandlerService();
             _commandHandlerService.InitHandlers(eventRepository);
         }
 
         static void Main(string[] args)
         {
+            Init();
+
             Guid id = Guid.NewGuid();
 
-            var command = new CreateDomainAggregateRoot()
+            var command = new CreateInventoryItem()
             {
                 Id = id,
                 Name = "testname"
